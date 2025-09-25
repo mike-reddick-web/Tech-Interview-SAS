@@ -1,4 +1,4 @@
-import os
+import os, date_generator as dg
 from datetime import datetime
 
 # Set to store unique, valid date-time values
@@ -27,7 +27,7 @@ while retry<=1:
         print("Error: No file 'dates.txt'. Attempting to generate...")
         retry+=1
         try:
-            import date_generator
+            dg.create_file()
         except:
             continue
         continue
@@ -38,4 +38,5 @@ with open(f'{os.getcwd()}\\output.txt', 'w') as output_file:
     output_file.write("\n".join(sorted(valid_dates, reverse=True)))
 
 print("Unique valid date-time values have been written to 'output.txt'.")
+
 
