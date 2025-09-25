@@ -7,7 +7,7 @@ Python scripts for ISO 8601 date validation
 
    This will run all necessary components to generate roughly 2 million date times from date_generator.py and save them to 'dates.txt'. 
    Alternatively, you are able to provide your own list of valid/invalid ISO 8601 date times in a file labeled 'dates.txt'.
-   Either way, this script will then produce an output file labeled 'output.txt'. This file will be unique ISO 8601 compliant date times from the datetime Python library.
+   Either way, this script will then produce an output file labeled 'output.txt'. This file will be unique ISO 8601 compliant date times from the datetime Python library. Last minute change - assuming timezone is necessary.
 
     python date generator.py
 
@@ -24,6 +24,6 @@ Python scripts for ISO 8601 date validation
 
     python regex_chatgpt.py
 
-regex_chatgpt - logically runs similarly to iso8601_format_check, however it uses regex to match the ISO standard instead of the built in Python libraries. This was built as a tool (and partially for fun) using ChatGPT to see if a prompt could be made that returns this exact use case. So far in my testing it has been spot on with all of the dates I've tried.
+regex_chatgpt - logically runs similarly to iso8601_format_check, however it uses regex to match the ISO standard instead of the built in Python libraries. This was built as a tool (and partially for fun) using ChatGPT to see if a prompt could be made that returns this exact use case. So far in my testing it has been spot on with all of the dates I've tried. Last minute change - assuming timezone is necessary.
 
   

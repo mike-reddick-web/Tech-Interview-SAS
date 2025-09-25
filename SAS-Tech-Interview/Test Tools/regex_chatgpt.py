@@ -14,9 +14,10 @@ while retry<=1:
     try:
         with open(f'{os.getcwd()}\\dates.txt', 'r') as file:
           for line in file:
-            date = line.strip()
-            if pattern.match(date):  # Check if the date matches the regex
-                    valid_dates.add(date)
+            date_string = line.strip()
+            if pattern.match(date_string):  # Check if the date matches the regex
+              if('+' in date_string[-6:] or  '-' in date_string[-6:] or 'Z' in date_string[-1]):#Check if timezone is available
+                    valid_dates.add(date_string)
         retry=2
 
                 

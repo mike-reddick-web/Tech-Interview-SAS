@@ -13,8 +13,9 @@ while retry<=1:
             date_string = line.strip()
             try:
               #Check if line is iso format from datetime library
-              datetime.fromisoformat(date_string)
-              valid_dates.add(date_string)
+              if('+' in date_string[-6:] or  '-' in date_string[-6:] or 'Z' in date_string[-1]):	
+                datetime.fromisoformat(date_string)	      
+                valid_dates.add(date_string)
             except ValueError:
               continue
         retry+=1
@@ -38,3 +39,4 @@ with open(f'{os.getcwd()}\\output.txt', 'w') as output_file:
     output_file.write("\n".join(sorted(valid_dates, reverse=True)))
 
 print("Unique valid date-time values have been written to 'output.txt'.")
+
