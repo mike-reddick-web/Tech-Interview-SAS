@@ -1,15 +1,5 @@
-Run date_generator -> (iso88601_format_check/regex_chatgpt) -> file_comp
-
-python date_generator.py
-	-Will generate 1.5 million random dates (possibly some duplicates, intentional)
-	-Will copy .5 million random dates, to be ignored per the instructions
-	-Will copy .5 million random dates, change the hyphens to backslashes, thus not making them iso compliant
-
-	Outputs to dates.txt
-
-python iso8601_format_check.py or regex_chatgpt.py
-	-Will add unique dates to a set, thus avoiding duplicates
-	-Outputs to output.txt and output_test.txt respectively
-
-python file_comp.py
-	-Prints true/false if regex and iso output files are equal
+Either run all of the files individually starting with date_generator -> iso8601_format_check -> regex_chatgpt -> file_comp
+		
+		or
+Just run python file_comp.py while dates.txt is not in this folder. It will create all the necessary files to run.
+The last line of True/False will show if the regex and iso utilities in python are equal.

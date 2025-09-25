@@ -9,20 +9,33 @@ pattern = re.compile(r'^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])[T ](\d{
 # Set to store unique, valid date-time values
 valid_dates = set()
 
-try:
-    # Open the input file
-    with open(f'{os.getcwd()}\\dates.txt', 'r') as file:
-        for line in file:
+retry = 0
+while retry<=1:
+    try:
+        with open(f'{os.getcwd()}\\dates.txt', 'r') as file:
+          for line in file:
             date = line.strip()
-
             if pattern.match(date):  # Check if the date matches the regex
-                valid_dates.add(date)
-except:
-    print("Error: Make sure there is a dates.txt file in this folder.\nThis can be gathered from running date_generation.py")
-    exit()
+                    valid_dates.add(date)
+        retry=2
+
+                
+    except:
+        if retry == 1:
+             print("Error: No file dates.txt. Unable to generate.\nPlease move date_generator.py from Test Tools to this working directory. Alternatively, provide a 'dates.txt' file.")
+             exit()
+        print("Error: No file 'dates.txt'. Attempting to generate...")
+        retry+=1
+        try:
+            import date_generator
+        except:
+            continue
+        continue
 
 # Open the output file where unique valid date-time values will be written
 with open(f'{os.getcwd()}\\output_test.txt', 'w') as output_file:
     output_file.write("\n".join(sorted(valid_dates, reverse=True)))
 
 print("Unique valid date-time values have been written to 'output_test.txt'.")
+
+

@@ -42,4 +42,4 @@ with open("dates.txt", "w") as file:
     file.write("\n".join(duplicate_dates))
     file.write("\n".join(invalid_dates))
 
-print("1.5 million random ISO dates and .5 million invalid dates written to 'dates.txt'.")
+print("1.5 million random ISO dates, .5 million duplicates, and .5 million invalid dates written to 'dates.txt'.")
