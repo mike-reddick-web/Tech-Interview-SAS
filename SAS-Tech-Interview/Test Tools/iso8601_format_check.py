@@ -32,11 +32,10 @@ while retry<=1:
             continue
         continue
 
-if retry == 1:
-  print(valid_dates)
 #Open output file to write unique date-time values
 with open(f'{os.getcwd()}\\output.txt', 'w') as output_file:
     output_file.write("\n".join(sorted(valid_dates, reverse=True)))
 
 print("Unique valid date-time values have been written to 'output.txt'.")
+
 
