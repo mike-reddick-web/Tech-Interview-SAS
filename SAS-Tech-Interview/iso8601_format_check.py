@@ -13,7 +13,8 @@ while retry<=1:
             date_string = line.strip()
             try:
               #Check if line is iso format from datetime library
-              datetime.fromisoformat(date_string)
+              #if('+' in date_string[-6:] or  '-' in date_string[-6:] or 'Z' in date_string[-1]):	###IF A TIMEZONE IS NECESSARY
+              datetime.fromisoformat(date_string)	      
               valid_dates.add(date_string)
             except ValueError:
               continue
