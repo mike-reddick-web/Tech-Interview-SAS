@@ -30,16 +30,20 @@ def generate_random_iso_date():
         return f"{year}-{month:02}-{day:02}T{hour:02}:{minute:02}:{second:02}"
 
 
+def create_file():
+  #Generate random dates, duplicate dates (to be ignored), and invalid dates
+  random_iso_dates = [generate_random_iso_date() for _ in range(1500000)]
+  duplicate_dates = random.choices(random_iso_dates, k=250001)
+  invalid_dates = [item.replace('-', '/') for item in random.choices(random_iso_dates, k=250001)]
 
-#Generate random dates, duplicate dates (to be ignored), and invalid dates
-random_iso_dates = [generate_random_iso_date() for _ in range(1500000)]
-duplicate_dates = random.choices(random_iso_dates, k=250001)
-invalid_dates = [item.replace('-', '/') for item in random.choices(random_iso_dates, k=250001)]
-
-# Write the generated random dates to 'dates.txt'
-with open("dates.txt", "w") as file:
+  # Write the generated random dates to 'dates.txt'
+  with open("dates.txt", "w") as file:
     file.write("\n".join(random_iso_dates))
     file.write("\n".join(duplicate_dates))
     file.write("\n".join(invalid_dates))
 
-print("1.5 million random ISO dates, .5 million duplicates, and .5 million invalid dates written to 'dates.txt'.")
+  print("1.5 million random ISO dates, .5 million duplicates, and .5 million invalid dates written to 'dates.txt'.")
+
+if __name__ == "__main__":
+  create_file()
+
